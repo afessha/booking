@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer component Matches the snapshot 1`] = `
+<div>
+  <h3
+    className="seating-title"
+  >
+    Booking List 
+  </h3>
+  <div
+    className="link-to-booking"
+  >
+    <a
+      href="/"
+      onClick={[Function]}
+    >
+      Go to Booking page
+    </a>
+  </div>
+  <br />
+  <br />
+  <table
+    className="table table-hover"
+  >
+    <thead>
+      <tr>
+        <th
+          scope="col"
+        >
+          First Name 
+        </th>
+        <th
+          scope="col"
+        >
+          Last Name 
+        </th>
+        <th
+          scope="col"
+        >
+          Dining Date
+        </th>
+        <th
+          scope="col"
+        >
+          Number of Covers 
+        </th>
+        <th
+          scope="col"
+        >
+          Phone Number
+        </th>
+        <th
+          scope="col"
+        >
+          Email
+        </th>
+        <th
+          scope="col"
+        >
+          Status
+        </th>
+      </tr>
+    </thead>
+  </table>
+  <div
+    className="footer"
+  >
+     Awet Fessha @2020 
+  </div>
+</div>
+`;

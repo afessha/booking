@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer component Matches the snapshot 1`] = `
+<div
+  className="footer"
+>
+   Awet Fessha @2020 
+</div>
+`;

@@ -1,15 +1,31 @@
 import React from "react";
-import data from "../../data/data.json";
-import "./Seating.css";
+import { render } from "@testing-library/react";
+import { create } from "react-test-renderer";
+import data from "../data/data.json";
 import { Link, BrowserRouter } from "react-router-dom";
-import Footer from "../footer/Footer";
+import Footer from "../components/footer/Footer";
 class Seating extends React.Component {
   constructor() {
     super();
     this.state = {
       bookings: data,
+      // filteredBookings: data,
+      // searchValue: "",
     };
   }
+
+  //   onChange = (e) => {
+  //     const state = this.state;
+  //     state[e.target.name] = e.target.value;
+  //     this.setState(state);
+  //     const { searchValue } = this.state;
+  //     const filteredOutput = this.state.bookings.filter((result) => {
+  //       return (
+  //         result.firstname === searchValue || result.lastname === searchValue
+  //       );
+  //     });
+  //     this.setState({ filteredBookings: filteredOutput });
+  //   };
 
   render() {
     let users = JSON.parse(localStorage.getItem("users") || "[]");
@@ -73,3 +89,10 @@ class Seating extends React.Component {
 }
 
 export default Seating;
+
+describe("Footer component", () => {
+  test("Matches the snapshot", () => {
+    const seating = create(<Seating />);
+    expect(seating.toJSON()).toMatchSnapshot();
+  });
+});

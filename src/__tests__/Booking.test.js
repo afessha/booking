@@ -1,8 +1,9 @@
 import React from "react";
-import data from "../../data/data.json";
-import "./Booking.css";
+import { render } from "@testing-library/react";
+import { create } from "react-test-renderer";
+import data from "../data/data.json";
 import { Link, BrowserRouter } from "react-router-dom";
-import Footer from "../footer/Footer";
+import Footer from "../components/footer/Footer";
 class Booking extends React.Component {
   constructor() {
     super();
@@ -162,3 +163,10 @@ class Booking extends React.Component {
   }
 }
 export default Booking;
+
+describe("Footer component", () => {
+  test("Matches the snapshot", () => {
+    const booking = create(<Booking />);
+    expect(booking.toJSON()).toMatchSnapshot();
+  });
+});
