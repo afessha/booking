@@ -1,0 +1,18 @@
+[
+  {
+    "firstname": "Mozafar",
+    "lastname": "Haider",
+    "diningDate": "10-09-2020",
+    "numberOfCovers": 5,
+    "phoneNumber": "07456789542",
+    "email": "mozafar@gmail.com"
+  },
+  {
+    "firstname": "Awet",
+    "lastname": "Fessha",
+    "diningDate": "18-08-2020",
+    "numberOfCovers": 3,
+    "phoneNumber": "07454789145",
+    "email": "awet@gmail.com"
+  }
+]
