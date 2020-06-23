@@ -1,8 +1,8 @@
 import React from "react";
-import data from "../data/data.json";
+import data from "../../data/data.json";
 import "./Seating.css";
 import { Link } from "react-router-dom";
-import Footer from "./Footer";
+import Footer from "../footer/Footer";
 class Seating extends React.Component {
   constructor() {
     super();

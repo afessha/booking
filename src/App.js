@@ -1,6 +1,6 @@
 import React from "react";
-import Booking from "./components/Booking";
-import Seating from "./components/Seating";
+import Booking from "./components/booking/Booking";
+import Seating from "./components/seating/Seating";
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
 function App() {

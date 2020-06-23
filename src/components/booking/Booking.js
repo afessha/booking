@@ -1,8 +1,8 @@
 import React from "react";
-import data from "../data/data.json";
+import data from "../../data/data.json";
 import "./Booking.css";
 import { Link } from "react-router-dom";
-import Footer from "./Footer";
+import Footer from "../footer/Footer";
 class Booking extends React.Component {
   constructor() {
     super();
@@ -14,6 +14,7 @@ class Booking extends React.Component {
       numberOfCovers: "",
       email: "",
       phoneNumber: "",
+      message: "",
       errors: [],
     };
   }
@@ -59,7 +60,7 @@ class Booking extends React.Component {
     } = this.state;
     const errors = this.validate(lastname, email, phoneNumber);
     if (errors.length > 0) {
-      this.setState({ errors });
+      this.setState({ errors: errors, message: "" });
       return;
     }
     let newBooking = {
@@ -73,7 +74,12 @@ class Booking extends React.Component {
 
     let currentBooking = this.state.bookings;
     currentBooking.push(newBooking);
+
     this.formRef.reset();
+    this.setState({
+      message: "Thank you for booking.",
+      errors: [],
+    });
 
     localStorage.setItem("users", JSON.stringify(currentBooking));
   };
@@ -87,17 +93,15 @@ class Booking extends React.Component {
           <form className="form-signin" ref={(ref) => (this.formRef = ref)}>
             <h2 className="form-signin-heading">Booking</h2>
             <Link to={"/booking-list"}> Go to Bookings List</Link>
-            <br />
+
             {errors.map((error) => (
               <p key={error} className="error">
                 Error: {error}
               </p>
             ))}
-            {/* {errors.length <= 1 ? (
-              <p className="submitted"> Thank you for reserving a table.</p>
-            ) : (
-              <p></p>
-            )} */}
+
+            <p className="submitted"> {this.state.message}</p>
+
             <br />
             <label>First Name</label>
             <input
