@@ -5,7 +5,7 @@ import Seating from "./components/Seating";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 function App() {
   return (
-    <Router>
+    <Router basename="/booking">
       <Route exact={true} path="/" component={Booking} />
       <Route path="/booking-list" component={Seating} />
     </Router>
