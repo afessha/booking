@@ -1,7 +1,7 @@
 import React from "react";
 import data from "../../data/data.json";
 import "./Booking.css";
-import { Link, BrowserRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Footer from "../footer/Footer";
 class Booking extends React.Component {
   constructor() {
@@ -26,11 +26,9 @@ class Booking extends React.Component {
 
   validate = (lastname, email, phoneNumber) => {
     const errors = [];
-
     if (lastname.length === 0) {
       errors.push("Name can't be empty");
     }
-
     if (email.length < 5) {
       errors.push("Email should be at least 5 charcters long");
     }
@@ -40,14 +38,13 @@ class Booking extends React.Component {
     if (email.indexOf(".") === -1) {
       errors.push("Email should contain at least one dot");
     }
-
     if (phoneNumber.length < 10) {
       errors.push("Phone number should be at least 10 numbers long");
     }
-
     return errors;
   };
 
+  //onsubmitt function
   onSubmit = (e) => {
     e.preventDefault();
     const {
@@ -58,6 +55,8 @@ class Booking extends React.Component {
       email,
       phoneNumber,
     } = this.state;
+
+    //validating
     const errors = this.validate(lastname, email, phoneNumber);
     if (errors.length > 0) {
       this.setState({ errors: errors, message: "" });
@@ -74,18 +73,17 @@ class Booking extends React.Component {
 
     let currentBooking = this.state.bookings;
     currentBooking.push(newBooking);
-
     this.formRef.reset();
     this.setState({
       message: "Thank you for booking.",
       errors: [],
     });
-
-    localStorage.setItem("users", JSON.stringify(currentBooking));
+    //store bookings in localStorage
+    localStorage.setItem("bookings", JSON.stringify(currentBooking));
   };
 
   render() {
-    localStorage.setItem("users", JSON.stringify(this.state.bookings));
+    localStorage.setItem("bookings", JSON.stringify(this.state.bookings));
     const { errors } = this.state;
     return (
       <div>

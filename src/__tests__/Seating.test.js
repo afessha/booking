@@ -14,30 +14,12 @@ class Seating extends React.Component {
     };
   }
 
-  //   onChange = (e) => {
-  //     const state = this.state;
-  //     state[e.target.name] = e.target.value;
-  //     this.setState(state);
-  //     const { searchValue } = this.state;
-  //     const filteredOutput = this.state.bookings.filter((result) => {
-  //       return (
-  //         result.firstname === searchValue || result.lastname === searchValue
-  //       );
-  //     });
-  //     this.setState({ filteredBookings: filteredOutput });
-  //   };
-
   render() {
-    let users = JSON.parse(localStorage.getItem("users") || "[]");
+    let users = JSON.parse(localStorage.getItem("bookings") || "[]");
     return (
       <BrowserRouter>
         <div>
           <h3 className="seating-title">Booking List </h3>
-          {/* <input
-          classname="search-input"
-          placeholder="search by name"
-          onChange={this.onChange}
-        /> */}
           <div className="link-to-booking">
             <Link to={"/"}>Go to Booking page</Link>
           </div>

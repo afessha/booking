@@ -1,7 +1,7 @@
 import React from "react";
 import data from "../../data/data.json";
 import "./Seating.css";
-import { Link, BrowserRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Footer from "../footer/Footer";
 class Seating extends React.Component {
   constructor() {
@@ -12,15 +12,10 @@ class Seating extends React.Component {
   }
 
   render() {
-    let users = JSON.parse(localStorage.getItem("users") || "[]");
+    let updatedBookings = JSON.parse(localStorage.getItem("bookings") || "[]");
     return (
       <div>
         <h3 className="seating-title">Booking List </h3>
-        {/* <input
-          classname="search-input"
-          placeholder="search by name"
-          onChange={this.onChange}
-        /> */}
         <div className="link-to-booking">
           <Link to={"/booking"}>Go to Booking page</Link>
         </div>
@@ -39,7 +34,7 @@ class Seating extends React.Component {
               <th scope="col">Status</th>
             </tr>
           </thead>
-          {users.map((result) => (
+          {updatedBookings.map((result) => (
             <tbody>
               <tr>
                 <td>{result.firstname} </td>

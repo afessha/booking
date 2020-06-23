@@ -31,7 +31,6 @@ class Booking extends React.Component {
     if (lastname.length === 0) {
       errors.push("Name can't be empty");
     }
-
     if (email.length < 5) {
       errors.push("Email should be at least 5 charcters long");
     }
@@ -41,11 +40,9 @@ class Booking extends React.Component {
     if (email.indexOf(".") === -1) {
       errors.push("Email should contain at least one dot");
     }
-
     if (phoneNumber.length < 10) {
       errors.push("Phone number should be at least 10 numbers long");
     }
-
     return errors;
   };
 
@@ -82,11 +79,11 @@ class Booking extends React.Component {
       errors: [],
     });
 
-    localStorage.setItem("users", JSON.stringify(currentBooking));
+    localStorage.setItem("bookings", JSON.stringify(currentBooking));
   };
 
   render() {
-    localStorage.setItem("users", JSON.stringify(this.state.bookings));
+    localStorage.setItem("bookings", JSON.stringify(this.state.bookings));
     const { errors } = this.state;
     return (
       <BrowserRouter>
