@@ -7,16 +7,16 @@ import { BrowserRouter, Route } from "react-router-dom";
 
 function App() {
   return (
-    <BrowserRouter basename="/booking">
-      <Route exact={true} path="/" component={Booking} />
-      <Route path="/booking-list" component={Seating} />
+    <BrowserRouter>
+      <Route exact={true} path="/booking" component={Booking} />
+      <Route path="/booking/booking-list" component={Seating} />
     </BrowserRouter>
   );
 }
 
 export default App;
 
-describe("Footer component", () => {
+describe("App component", () => {
   test("Matches the snapshot", () => {
     const app = create(<App />);
     expect(app.toJSON()).toMatchSnapshot();

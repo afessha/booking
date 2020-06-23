@@ -164,7 +164,7 @@ class Booking extends React.Component {
 }
 export default Booking;
 
-describe("Footer component", () => {
+describe("Booking component", () => {
   test("Matches the snapshot", () => {
     const booking = create(<Booking />);
     expect(booking.toJSON()).toMatchSnapshot();

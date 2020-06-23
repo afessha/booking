@@ -90,7 +90,7 @@ class Seating extends React.Component {
 
 export default Seating;
 
-describe("Footer component", () => {
+describe("Seating component", () => {
   test("Matches the snapshot", () => {
     const seating = create(<Seating />);
     expect(seating.toJSON()).toMatchSnapshot();

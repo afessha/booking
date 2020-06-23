@@ -88,76 +88,74 @@ class Booking extends React.Component {
     localStorage.setItem("users", JSON.stringify(this.state.bookings));
     const { errors } = this.state;
     return (
-      <BrowserRouter>
-        <div>
-          <div className="container">
-            <form className="form-signin" ref={(ref) => (this.formRef = ref)}>
-              <h2 className="form-signin-heading">Booking</h2>
-              <Link to={"/booking-list"}> Go to Bookings List</Link>
+      <div>
+        <div className="container">
+          <form className="form-signin" ref={(ref) => (this.formRef = ref)}>
+            <h2 className="form-signin-heading">Booking</h2>
+            <Link to={"/booking/booking-list"}> Go to Bookings List</Link>
 
-              {errors.map((error) => (
-                <p key={error} className="error">
-                  Error: {error}
-                </p>
-              ))}
+            {errors.map((error) => (
+              <p key={error} className="error">
+                Error: {error}
+              </p>
+            ))}
 
-              <p className="submitted"> {this.state.message}</p>
+            <p className="submitted"> {this.state.message}</p>
 
-              <br />
-              <label>First Name</label>
-              <input
-                className="form-control"
-                name="firstname"
-                required
-                onChange={this.onChange}
-              />
-              <label>Last Name</label>
-              <input
-                className="form-control"
-                name="lastname"
-                onChange={this.onChange}
-                required
-              />
-              <label> Dining Date</label>
-              <input
-                className="form-control"
-                name="diningDate"
-                required
-                onChange={this.onChange}
-              />
-              <label>Number of Covers </label>
-              <input
-                className="form-control"
-                name="numberOfCovers"
-                required
-                onChange={this.onChange}
-              />
-              <label> Email </label>
-              <input
-                className="form-control"
-                name="email"
-                required
-                onChange={this.onChange}
-              />
-              <label>Phone Number</label>
-              <input
-                className="form-control"
-                required
-                name="phoneNumber"
-                onChange={this.onChange}
-              />
-              <button
-                className="btn btn-lg btn-success btn-block"
-                type="submit"
-                onClick={this.onSubmit}
-              >
-                Book Table
-              </button>
-            </form>
-          </div>
-          <Footer />
+            <br />
+            <label>First Name</label>
+            <input
+              className="form-control"
+              name="firstname"
+              required
+              onChange={this.onChange}
+            />
+            <label>Last Name</label>
+            <input
+              className="form-control"
+              name="lastname"
+              onChange={this.onChange}
+              required
+            />
+            <label> Dining Date</label>
+            <input
+              className="form-control"
+              name="diningDate"
+              required
+              onChange={this.onChange}
+            />
+            <label>Number of Covers </label>
+            <input
+              className="form-control"
+              name="numberOfCovers"
+              required
+              onChange={this.onChange}
+            />
+            <label> Email </label>
+            <input
+              className="form-control"
+              name="email"
+              required
+              onChange={this.onChange}
+            />
+            <label>Phone Number</label>
+            <input
+              className="form-control"
+              required
+              name="phoneNumber"
+              onChange={this.onChange}
+            />
+            <button
+              className="btn btn-lg btn-success btn-block"
+              type="submit"
+              onClick={this.onSubmit}
+            >
+              Book Table
+            </button>
+          </form>
         </div>
-      </BrowserRouter>
+        <Footer />
+      </div>
     );
   }
 }

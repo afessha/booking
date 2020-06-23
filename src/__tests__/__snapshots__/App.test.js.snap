@@ -1,5 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[` component Matches the snapshot 1`] = `null`;
+
+exports[`App component Matches the snapshot 1`] = `null`;
+
+exports[`F component Matches the snapshot 1`] = `null`;
+
 exports[`Footer component Matches the snapshot 1`] = `
 <div>
   <div
