@@ -1,8 +1,8 @@
 import React from "react";
 import data from "../../data/data.json";
 import "./Booking.css";
-import { Link } from "react-router-dom";
 import Footer from "../footer/Footer";
+
 class Booking extends React.Component {
   constructor() {
     super();
@@ -90,8 +90,6 @@ class Booking extends React.Component {
         <div className="container">
           <form className="form-signin" ref={(ref) => (this.formRef = ref)}>
             <h2 className="form-signin-heading">Booking</h2>
-            <Link to={"/booking/booking-list"}> Go to Bookings List</Link>
-
             {errors.map((error) => (
               <p key={error} className="error">
                 Error: {error}
