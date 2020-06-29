@@ -1,23 +1,21 @@
-import React from "react";
+import { React, useState } from "react";
 import data from "../../data/data.json";
 import "./Booking.css";
 import Footer from "../footer/Footer";
 
-class Booking extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      bookings: data,
-      firstname: "",
-      lastname: "",
-      diningDate: "",
-      numberOfCovers: "",
-      email: "",
-      phoneNumber: "",
-      message: "",
-      errors: [],
-    };
-  }
+Booking = () => {
+  this.state = {
+    bookings: data,
+    firstname: "",
+    lastname: "",
+    diningDate: "",
+    numberOfCovers: "",
+    email: "",
+    phoneNumber: "",
+    message: "",
+    errors: [],
+  };
+
   onChange = (e) => {
     const state = this.state;
     state[e.target.name] = e.target.value;
@@ -82,77 +80,75 @@ class Booking extends React.Component {
     localStorage.setItem("bookings", JSON.stringify(currentBooking));
   };
 
-  render() {
-    localStorage.setItem("bookings", JSON.stringify(this.state.bookings));
-    const { errors } = this.state;
-    return (
-      <div>
-        <div className="container">
-          <form className="form-signin" ref={(ref) => (this.formRef = ref)}>
-            <h2 className="form-signin-heading">Booking</h2>
-            {errors.map((error) => (
-              <p key={error} className="error">
-                Error: {error}
-              </p>
-            ))}
+  localStorage.setItem("bookings", JSON.stringify(this.state.bookings));
+  const { errors } = this.state;
+  return (
+    <div>
+      <div className="container">
+        <form className="form-signin" ref={(ref) => (this.formRef = ref)}>
+          <h2 className="form-signin-heading">Booking</h2>
+          {errors.map((error) => (
+            <p key={error} className="error">
+              Error: {error}
+            </p>
+          ))}
 
-            <p className="submitted"> {this.state.message}</p>
+          <p className="submitted"> {this.state.message}</p>
 
-            <br />
-            <label>First Name</label>
-            <input
-              className="form-control"
-              name="firstname"
-              required
-              onChange={this.onChange}
-            />
-            <label>Last Name</label>
-            <input
-              className="form-control"
-              name="lastname"
-              onChange={this.onChange}
-              required
-            />
-            <label> Dining Date</label>
-            <input
-              className="form-control"
-              name="diningDate"
-              required
-              onChange={this.onChange}
-            />
-            <label>Number of Covers </label>
-            <input
-              className="form-control"
-              name="numberOfCovers"
-              required
-              onChange={this.onChange}
-            />
-            <label> Email </label>
-            <input
-              className="form-control"
-              name="email"
-              required
-              onChange={this.onChange}
-            />
-            <label>Phone Number</label>
-            <input
-              className="form-control"
-              required
-              name="phoneNumber"
-              onChange={this.onChange}
-            />
-            <button
-              className="btn btn-lg btn-success btn-block"
-              type="submit"
-              onClick={this.onSubmit}
-            >
-              Book Table
-            </button>
-          </form>
-        </div>
-        <Footer />
+          <br />
+          <label>First Name</label>
+          <input
+            className="form-control"
+            name="firstname"
+            required
+            onChange={this.onChange}
+          />
+          <label>Last Name</label>
+          <input
+            className="form-control"
+            name="lastname"
+            onChange={this.onChange}
+            required
+          />
+          <label> Dining Date</label>
+          <input
+            className="form-control"
+            name="diningDate"
+            required
+            onChange={this.onChange}
+          />
+          <label>Number of Covers </label>
+          <input
+            className="form-control"
+            name="numberOfCovers"
+            required
+            onChange={this.onChange}
+          />
+          <label> Email </label>
+          <input
+            className="form-control"
+            name="email"
+            required
+            onChange={this.onChange}
+          />
+          <label>Phone Number</label>
+          <input
+            className="form-control"
+            required
+            name="phoneNumber"
+            onChange={this.onChange}
+          />
+          <button
+            className="btn btn-lg btn-success btn-block"
+            type="submit"
+            onClick={this.onSubmit}
+          >
+            Book Table
+          </button>
+        </form>
       </div>
-    );
-  }
-}
+      <Footer />
+    </div>
+  );
+};
 export default Booking;
