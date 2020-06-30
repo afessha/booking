@@ -3,9 +3,6 @@ import data from "../../data/data.json";
 import "./Seating.css";
 import Footer from "../footer/Footer";
 Seating = () => {
-  state = {
-    bookings: data,
-  };
   let updatedBookings = JSON.parse(localStorage.getItem("bookings") || "[]");
   return (
     <div>
