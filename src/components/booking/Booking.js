@@ -1,10 +1,11 @@
 import { React, useState } from "react";
 import data from "../../data/data.json";
+import { connect } from "react-redux";
 import "./Booking.css";
 import Footer from "../footer/Footer";
 
-Booking = () => {
-  this.state = {
+const Booking = () => {
+  const { clicked, setClicked } = useState({
     bookings: data,
     firstname: "",
     lastname: "",
@@ -14,7 +15,8 @@ Booking = () => {
     phoneNumber: "",
     message: "",
     errors: [],
-  };
+  });
+  
 
   onChange = (e) => {
     const state = this.state;
@@ -85,7 +87,7 @@ Booking = () => {
   return (
     <div>
       <div className="container">
-        <form className="form-signin" ref={(ref) => (this.formRef = ref)}>
+        <form className="form-signin">
           <h2 className="form-signin-heading">Booking</h2>
           {errors.map((error) => (
             <p key={error} className="error">
