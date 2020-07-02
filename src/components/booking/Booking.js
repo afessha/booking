@@ -1,156 +1,118 @@
-import { React, useState } from "react";
-import data from "../../data/data.json";
+import React from "react";
 import { connect } from "react-redux";
 import "./Booking.css";
 import Footer from "../footer/Footer";
+import useFormValidation from "./useFormValidation";
+import validateAuth from "./validateAuth";
+import { bookingAdd } from "../../redux/actions";
 
-const Booking = () => {
-  const { clicked, setClicked } = useState({
-    bookings: data,
-    firstname: "",
-    lastname: "",
-    diningDate: "",
-    numberOfCovers: "",
-    email: "",
-    phoneNumber: "",
-    message: "",
-    errors: [],
-  });
-  
-
-  onChange = (e) => {
-    const state = this.state;
-    state[e.target.name] = e.target.value;
-    this.setState(state);
-  };
-
-  validate = (lastname, email, phoneNumber) => {
-    const errors = [];
-    if (lastname.length === 0) {
-      errors.push("Name can't be empty");
-    }
-    if (email.length < 5) {
-      errors.push("Email should be at least 5 charcters long");
-    }
-    if (email.split("").filter((x) => x === "@").length !== 1) {
-      errors.push("Email should contain a @");
-    }
-    if (email.indexOf(".") === -1) {
-      errors.push("Email should contain at least one dot");
-    }
-    if (phoneNumber.length < 10) {
-      errors.push("Phone number should be at least 10 numbers long");
-    }
-    return errors;
-  };
-
-  //onsubmitt function
-  onSubmit = (e) => {
-    e.preventDefault();
-    const {
-      firstname,
-      lastname,
-      diningDate,
-      numberOfCovers,
-      email,
-      phoneNumber,
-    } = this.state;
-
-    //validating
-    const errors = this.validate(lastname, email, phoneNumber);
-    if (errors.length > 0) {
-      this.setState({ errors: errors, message: "" });
-      return;
-    }
-    let newBooking = {
-      firstname: firstname,
-      lastname: lastname,
-      diningDate: diningDate,
-      numberOfCovers: numberOfCovers,
-      email: email,
-      phoneNumber: phoneNumber,
-    };
-
-    let currentBooking = this.state.bookings;
-    currentBooking.push(newBooking);
-    this.formRef.reset();
-    this.setState({
-      message: "Thank you for booking.",
-      errors: [],
-    });
-    //store bookings in localStorage
-    localStorage.setItem("bookings", JSON.stringify(currentBooking));
-  };
-
-  localStorage.setItem("bookings", JSON.stringify(this.state.bookings));
-  const { errors } = this.state;
-  return (
-    <div>
-      <div className="container">
-        <form className="form-signin">
-          <h2 className="form-signin-heading">Booking</h2>
-          {errors.map((error) => (
-            <p key={error} className="error">
-              Error: {error}
-            </p>
-          ))}
-
-          <p className="submitted"> {this.state.message}</p>
-
-          <br />
-          <label>First Name</label>
-          <input
-            className="form-control"
-            name="firstname"
-            required
-            onChange={this.onChange}
-          />
-          <label>Last Name</label>
-          <input
-            className="form-control"
-            name="lastname"
-            onChange={this.onChange}
-            required
-          />
-          <label> Dining Date</label>
-          <input
-            className="form-control"
-            name="diningDate"
-            required
-            onChange={this.onChange}
-          />
-          <label>Number of Covers </label>
-          <input
-            className="form-control"
-            name="numberOfCovers"
-            required
-            onChange={this.onChange}
-          />
-          <label> Email </label>
-          <input
-            className="form-control"
-            name="email"
-            required
-            onChange={this.onChange}
-          />
-          <label>Phone Number</label>
-          <input
-            className="form-control"
-            required
-            name="phoneNumber"
-            onChange={this.onChange}
-          />
-          <button
-            className="btn btn-lg btn-success btn-block"
-            type="submit"
-            onClick={this.onSubmit}
-          >
-            Book Table
-          </button>
-        </form>
-      </div>
-      <Footer />
-    </div>
-  );
+const INITIAL_STATE = {
+  firstname: "",
+  lastname: "",
+  diningDate: "",
+  numberOfCovers: "",
+  email: "",
+  phoneNumber: "",
 };
-export default Booking;
+
+function Booking(props) {
+  const {
+    handleSubmit,
+    handleChange,
+    handleBlur,
+    values,
+    errors,
+    myNewBooking,
+  } = useFormValidation(INITIAL_STATE, validateAuth);
+  return (
+    <>
+      <div>
+        <div className="container">
+          <form className="form-signin">
+            <h2 className="form-signin-heading">Booking</h2>
+
+            <br />
+            <label>First Name</label>
+            <input
+              className="form-control"
+              name="firstname"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.firstname}
+            />
+            {errors.firstname && (
+              <p className="error-text">{errors.firstname}</p>
+            )}
+            <label>Last Name</label>
+            <input
+              className="form-control"
+              name="lastname"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.lastname}
+            />
+            {errors.lastname && <p className="error-text">{errors.lastname}</p>}
+            <label> Dining Date</label>
+            <input
+              className="form-control"
+              name="diningDate"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.diningDate}
+            />
+            <label>Number of Covers </label>
+            <input
+              className="form-control"
+              name="numberOfCovers"
+              required
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.numberOfCovers}
+            />
+            <label> Email </label>
+            <input
+              className="form-control"
+              name="email"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.email}
+            />
+            {errors.email && <p className="error-text">{errors.email}</p>}
+
+            <label>Phone Number</label>
+            <input
+              className="form-control"
+              required
+              name="phoneNumber"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.phoneNumber}
+            />
+            {errors.phoneNumber && (
+              <p className="error-text">{errors.phoneNumber}</p>
+            )}
+            <button
+              className="btn btn-lg btn-success btn-block"
+              type="submit"
+              onClick={handleSubmit && props.onClick(myNewBooking)}
+            >
+              Book Table
+            </button>
+          </form>
+        </div>
+        <Footer />
+      </div>
+    </>
+  );
+}
+const mapStateToProps = (state) => {
+  return {
+    bookings: state.bookings,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onClick: (booking) => dispatch(bookingAdd(booking)),
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Booking);

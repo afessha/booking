@@ -1,26 +1,21 @@
 import { combineReducers } from "redux";
 import { BOOKING_LOAD, BOOKING_ADD } from "./actions";
+import data from "../data/data";
 
 const INITAL_STATE = {
-  bookings: [],
+  bookings: data,
 };
-function bookingLoadReducer(state = INITAL_STATE, action) {
+function bookingReducer(state = INITAL_STATE, action) {
   switch (action.type) {
     case BOOKING_LOAD:
       return {
         ...state,
-        bookings: action.bookings,
       };
-    default:
-      return state;
-  }
-}
-function bookingAddReducer(state = INITAL_STATE, action) {
-  switch (action.type) {
     case BOOKING_ADD:
+      let updatedBookings = state.bookings.push(action.payload);
       return {
         ...state,
-        bookings: action.booking,
+        bookings: updatedBookings,
       };
     default:
       return state;
@@ -28,7 +23,6 @@ function bookingAddReducer(state = INITAL_STATE, action) {
 }
 
 const reducer = combineReducers({
-  bookingLoadReducer,
-  bookingAddReducer,
+  bookings: bookingReducer,
 });
 export default reducer;

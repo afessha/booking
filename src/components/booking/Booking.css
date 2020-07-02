@@ -45,3 +45,6 @@ body {
 .submitted {
   color: green;
 }
+.error-text {
+  color: red;
+}

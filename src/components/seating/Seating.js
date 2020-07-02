@@ -1,13 +1,11 @@
-import { React, useState } from "react";
+import React from "react";
 import data from "../../data/data.json";
 import "./Seating.css";
 import { connect } from "react-redux";
 import Footer from "../footer/Footer";
 import { bookingLoad } from "../../redux/actions";
-const Seating = (props) => {
-  props.onLoad(data);
-  console.log(props);
-
+function Seating({ bookings }) {
+  console.log(bookings);
   return (
     <div>
       <h3 className="seating-title">Booking List </h3>
@@ -27,7 +25,7 @@ const Seating = (props) => {
             <th scope="col">Status</th>
           </tr>
         </thead>
-        {props.booking.map((result) => (
+        {bookings.bookings.map((result) => (
           <tbody>
             <tr>
               <td>{result.firstname} </td>
@@ -55,16 +53,12 @@ const Seating = (props) => {
       <Footer />
     </div>
   );
-};
+}
 
 const mapStateToProps = (state) => {
   return {
-    booking: state.booking,
+    bookings: state.bookings,
   };
 };
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onLoad: (bookings) => dispatch(bookings),
-  };
-};
-export default connect(mapStateToProps, mapDispatchToProps)(Seating);
+
+export default connect(mapStateToProps)(Seating);
