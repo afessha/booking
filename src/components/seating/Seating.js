@@ -40,7 +40,6 @@ function Seating({ bookings }) {
 
               <td>{result.email}</td>
               <td>
-                {" "}
                 <select>
                   <option value="notArrived">Not arrived</option>
                   <option value="seated">Seated</option>
