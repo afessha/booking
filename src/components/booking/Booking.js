@@ -22,8 +22,21 @@ function Booking(props) {
     handleBlur,
     values,
     errors,
-    myNewBooking,
   } = useFormValidation(INITIAL_STATE, validateAuth);
+  function myNewBooking() {
+    if (errors.length === 0) {
+      return {
+        firstname: values.firstname,
+        lastname: values.lastname,
+        diningDate: values.diningDate,
+        numberOfCovers: values.numberOfCovers,
+        email: values.email,
+        phoneNumber: values.phoneNumber,
+      };
+    }
+  }
+  const newBooking = myNewBooking();
+  console.log(props.bookings);
   return (
     <>
       <div>
@@ -94,7 +107,7 @@ function Booking(props) {
             <button
               className="btn btn-lg btn-success btn-block"
               type="submit"
-              onClick={handleSubmit && props.onClick(myNewBooking)}
+              onClick={() => props.onClick(newBooking)}
             >
               Book Table
             </button>
