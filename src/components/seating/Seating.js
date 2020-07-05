@@ -1,5 +1,4 @@
 import React from "react";
-import data from "../../data/data.json";
 import "./Seating.css";
 import { connect } from "react-redux";
 import Footer from "../footer/Footer";
@@ -25,7 +24,7 @@ function Seating({ bookings }) {
             <th scope="col">Status</th>
           </tr>
         </thead>
-        {bookings.bookings.map((result) => (
+        {bookings.map((result) => (
           <tbody>
             <tr>
               <td>{result.firstname} </td>

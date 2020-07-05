@@ -16,22 +16,28 @@ const INITIAL_STATE = {
 };
 
 function Booking(props) {
+  console.log(props);
   const {
     handleSubmit,
     handleChange,
     handleBlur,
     values,
     errors,
-    myNewBooking,
   } = useFormValidation(INITIAL_STATE, validateAuth);
-  console.log(props.bookings.bookings);
+  const newBooking = {
+    firstname: values.firstname,
+    lastname: values.lastname,
+    diningDate: values.diningDate,
+    numberOfCovers: values.numberOfCovers,
+    email: values.email,
+    phoneNumber: values.phoneNumber,
+  };
   return (
     <>
       <div>
         <div className="container">
           <form className="form-signin">
             <h2 className="form-signin-heading">Booking</h2>
-
             <br />
             <label>First Name</label>
             <input
@@ -79,7 +85,6 @@ function Booking(props) {
               value={values.email}
             />
             {errors.email && <p className="error-text">{errors.email}</p>}
-
             <label>Phone Number</label>
             <input
               className="form-control"
@@ -96,9 +101,7 @@ function Booking(props) {
               className="btn btn-lg btn-success btn-block"
               type="submit"
               onClick={
-                handleSubmit === 1
-                  ? () => props.onClick(myNewBooking)
-                  : handleBlur
+                handleSubmit === 1 ? () => props.addNew(newBooking) : handleBlur
               }
             >
               Book Table
@@ -117,7 +120,7 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    onClick: (booking) => dispatch(bookingAdd(booking)),
+    addNew: (booking) => dispatch(bookingAdd(booking)),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Booking);

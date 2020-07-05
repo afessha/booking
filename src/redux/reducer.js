@@ -1,4 +1,3 @@
-import { combineReducers } from "redux";
 import { BOOKING_LOAD, BOOKING_ADD } from "./actions";
 import data from "../data/data";
 
@@ -9,11 +8,12 @@ function bookingReducer(state = INITAL_BOOKINGS, action) {
     case BOOKING_LOAD:
       return {
         ...state,
+        bookings: action.payload,
       };
     case BOOKING_ADD:
-      console.log(state.bookings);
-      let newArray = state.bookings.bookings.slice();
+      let newArray = state.bookings.slice();
       newArray.splice(newArray.length, 0, action.payload);
+      console.log(newArray);
       return {
         ...state,
         bookings: newArray,
@@ -24,7 +24,4 @@ function bookingReducer(state = INITAL_BOOKINGS, action) {
   }
 }
 
-const reducer = combineReducers({
-  bookings: bookingReducer,
-});
-export default reducer;
+export default bookingReducer;

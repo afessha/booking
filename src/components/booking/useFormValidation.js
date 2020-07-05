@@ -15,19 +15,6 @@ function useFormValidation(initialState, validate) {
     const validationErrors = validate(values);
     setErrors(validationErrors);
   }
-  function myNewBooking() {
-    const validationErrors = validate(values);
-    if (validationErrors.length === 0) {
-      return {
-        firstname: values.firstname,
-        lastname: values.lastname,
-        diningDate: values.diningDate,
-        numberOfCovers: values.numberOfCovers,
-        email: values.email,
-        phoneNumber: values.phoneNumber,
-      };
-    }
-  }
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -44,7 +31,6 @@ function useFormValidation(initialState, validate) {
     handleBlur,
     values,
     errors,
-    myNewBooking,
   };
 }
 
