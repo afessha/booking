@@ -12,12 +12,11 @@ function bookingReducer(state = INITAL_BOOKINGS, action) {
       };
     case BOOKING_ADD:
       console.log(state.bookings);
-      const updatedBookings = state.bookings;
-      updatedBookings.push(action.payload);
-      console.log(updatedBookings);
+      let newArray = state.bookings.bookings.slice();
+      newArray.splice(newArray.length, 0, action.payload);
       return {
         ...state,
-        bookings: updatedBookings,
+        bookings: newArray,
       };
 
     default:
