@@ -8,16 +8,12 @@ function bookingReducer(state = INITAL_BOOKINGS, action) {
     case BOOKING_LOAD:
       return {
         ...state,
-        bookings: action.payload,
       };
     case BOOKING_ADD:
       let newArray = state.bookings.slice();
       newArray.splice(newArray.length, 0, action.payload);
       console.log(newArray);
-      return {
-        ...state,
-        bookings: newArray,
-      };
+      return [...state, action.payload];
 
     default:
       return state;

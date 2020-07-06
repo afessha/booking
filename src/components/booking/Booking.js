@@ -15,7 +15,7 @@ const INITIAL_STATE = {
   phoneNumber: "",
 };
 
-function Booking(props) {
+function Booking({ props, bookings }) {
   console.log(props);
   const {
     handleSubmit,
