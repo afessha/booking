@@ -1,7 +1,7 @@
 import { BOOKING_LOAD, BOOKING_ADD } from "./actions";
 import data from "../data/data";
 
-const INITAL_BOOKINGS = { bookings: data };
+const INITAL_BOOKINGS = data;
 
 function bookingReducer(state = INITAL_BOOKINGS, action) {
   switch (action.type) {

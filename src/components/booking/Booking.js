@@ -6,7 +6,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { bookingAdd } from "../../redux/actions";
 
-function Booking({ props, bookings }) {
+function Booking(props) {
   const formik = useFormik({
     initialValues: {
       firstname: "",
@@ -25,8 +25,13 @@ function Booking({ props, bookings }) {
         .required("Required"),
       email: Yup.string().email("Invalid email address").required("Required"),
     }),
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+    onSubmit: (booking) => {
+      props.addNew({
+        ...booking,
+        id: Date.now(),
+        status: "Not arrived",
+      });
+      formik.resetForm();
     },
   });
 
@@ -93,14 +98,10 @@ function Booking({ props, bookings }) {
     </>
   );
 }
-const mapStateToProps = (state) => {
-  return {
-    bookings: state.bookings,
-  };
-};
+
 const mapDispatchToProps = (dispatch) => {
   return {
     addNew: (booking) => dispatch(bookingAdd(booking)),
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(Booking);
+export default connect(null, mapDispatchToProps)(Booking);

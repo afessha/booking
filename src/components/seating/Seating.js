@@ -2,7 +2,7 @@ import React from "react";
 import "./Seating.css";
 import { connect } from "react-redux";
 import Footer from "../footer/Footer";
-import { bookingLoad } from "../../redux/actions";
+
 function Seating({ bookings }) {
   console.log(bookings);
   return (
@@ -15,6 +15,7 @@ function Seating({ bookings }) {
       <table className="table table-hover">
         <thead>
           <tr>
+            <th scope="col">ID </th>
             <th scope="col">First Name </th>
             <th scope="col">Last Name </th>
             <th scope="col">Dining Date</th>
@@ -24,25 +25,25 @@ function Seating({ bookings }) {
             <th scope="col">Status</th>
           </tr>
         </thead>
-        {bookings.map((result) => (
+        {bookings.map((booking) => (
           <tbody>
+            {/* {key={booking.id}} */}
             <tr>
-              <td>{result.firstname} </td>
+              <td>{booking.id} </td>
+              <td>{booking.firstname} </td>
 
-              <td>{result.lastname} </td>
+              <td>{booking.lastname} </td>
 
-              <td>{result.diningDate} </td>
+              <td>{booking.diningDate} </td>
 
-              <td>{result.numberOfCovers} </td>
+              <td>{booking.numberOfCovers} </td>
 
-              <td>{result.phoneNumber}</td>
+              <td>{booking.phoneNumber}</td>
 
-              <td>{result.email}</td>
+              <td>{booking.email}</td>
+              <td>{booking.status}</td>
               <td>
-                <select>
-                  <option value="notArrived">Not arrived</option>
-                  <option value="seated">Seated</option>
-                </select>
+                <button> Mark Seated</button>
               </td>
             </tr>
           </tbody>
@@ -55,7 +56,7 @@ function Seating({ bookings }) {
 
 const mapStateToProps = (state) => {
   return {
-    bookings: state.bookings,
+    bookings: state,
   };
 };
 
