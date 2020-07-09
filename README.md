@@ -1,6 +1,6 @@
 ### Booking
 
-Booking web app build using React. The app is deployed to github pages so it can be viewed live [Here](https://afessha.github.io/booking/)
+Restaurant booking web app built using React, redux, formik, react-hooks. The app is deployed to github pages so it can be viewed live [Here](https://afessha.github.io/booking/)
 
 #### script for runing the app
 
