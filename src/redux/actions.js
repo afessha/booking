@@ -11,3 +11,7 @@ export function bookingLoad(bookings) {
 export function bookingAdd(booking) {
   return { type: BOOKING_ADD, booking };
 }
+
+export function markSeated(bookingId, value) {
+  return { type: BOOKING_MARK_SEATED, bookingId, value };
+}

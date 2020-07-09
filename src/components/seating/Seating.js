@@ -2,9 +2,10 @@ import React from "react";
 import "./Seating.css";
 import { connect } from "react-redux";
 import Footer from "../footer/Footer";
+import { markSeated } from "../../redux/actions";
 
-function Seating({ bookings }) {
-  console.log(bookings);
+function Seating(props) {
+  console.log(props.bookings);
   return (
     <div>
       <h3 className="seating-title">Booking List </h3>
@@ -25,11 +26,12 @@ function Seating({ bookings }) {
             <th scope="col">Status</th>
           </tr>
         </thead>
-        {bookings.map((booking) => (
+        {props.bookings.map((booking) => (
           <tbody>
             {/* {key={booking.id}} */}
             <tr>
               <td>{booking.id} </td>
+
               <td>{booking.firstname} </td>
 
               <td>{booking.lastname} </td>
@@ -43,7 +45,9 @@ function Seating({ bookings }) {
               <td>{booking.email}</td>
               <td>{booking.status}</td>
               <td>
-                <button> Mark Seated</button>
+                <button onClick={() => props.markSeated(booking.id, "Seated")}>
+                  Mark Seated
+                </button>
               </td>
             </tr>
           </tbody>
@@ -60,4 +64,9 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Seating);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    markSeated: (bookingId, value) => dispatch(markSeated(bookingId, value)),
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Seating);
