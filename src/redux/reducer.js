@@ -5,16 +5,9 @@ const INITAL_BOOKINGS = { bookings: data };
 
 function bookingReducer(state = INITAL_BOOKINGS, action) {
   switch (action.type) {
-    case BOOKING_LOAD:
-      return {
-        ...state,
-      };
     case BOOKING_ADD:
-      let newArray = state.bookings.slice();
-      newArray.splice(newArray.length, 0, action.payload);
-      console.log(newArray);
-      return [...state, action.payload];
-
+      return [...state, action.booking];
+    case BOOKING_LOAD:
     default:
       return state;
   }

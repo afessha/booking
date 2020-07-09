@@ -2,108 +2,88 @@ import React from "react";
 import { connect } from "react-redux";
 import "./Booking.css";
 import Footer from "../footer/Footer";
-import useFormValidation from "./useFormValidation";
-import validateAuth from "./validateAuth";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 import { bookingAdd } from "../../redux/actions";
 
-const INITIAL_STATE = {
-  firstname: "",
-  lastname: "",
-  diningDate: "",
-  numberOfCovers: "",
-  email: "",
-  phoneNumber: "",
-};
-
 function Booking({ props, bookings }) {
-  console.log(props);
-  const {
-    handleSubmit,
-    handleChange,
-    handleBlur,
-    values,
-    errors,
-  } = useFormValidation(INITIAL_STATE, validateAuth);
-  const newBooking = {
-    firstname: values.firstname,
-    lastname: values.lastname,
-    diningDate: values.diningDate,
-    numberOfCovers: values.numberOfCovers,
-    email: values.email,
-    phoneNumber: values.phoneNumber,
-  };
+  const formik = useFormik({
+    initialValues: {
+      firstname: "",
+      lastname: "",
+      diningDate: "",
+      numberOfCovers: "",
+      email: "",
+      phoneNumber: "",
+    },
+    validationSchema: Yup.object({
+      firstname: Yup.string()
+        .max(15, "Must be 15 characters or less")
+        .required("Required"),
+      lastname: Yup.string()
+        .max(20, "Must be 20 characters or less")
+        .required("Required"),
+      email: Yup.string().email("Invalid email address").required("Required"),
+    }),
+    onSubmit: (values) => {
+      alert(JSON.stringify(values, null, 2));
+    },
+  });
+
   return (
     <>
       <div>
         <div className="container">
-          <form className="form-signin">
+          <form className="form-signin" onSubmit={formik.handleSubmit}>
             <h2 className="form-signin-heading">Booking</h2>
             <br />
             <label>First Name</label>
             <input
               className="form-control"
               name="firstname"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.firstname}
+              {...formik.getFieldProps("firstname")}
             />
-            {errors.firstname && (
-              <p className="error-text">{errors.firstname}</p>
-            )}
+            {formik.touched.firstname && formik.errors.firstname ? (
+              <div className="error">{formik.errors.firstname}</div>
+            ) : null}
             <label>Last Name</label>
             <input
               className="form-control"
               name="lastname"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.lastname}
+              {...formik.getFieldProps("lastname")}
             />
-            {errors.lastname && <p className="error-text">{errors.lastname}</p>}
+            {formik.touched.lastname && formik.errors.lastname ? (
+              <div className="error">{formik.errors.lastname}</div>
+            ) : null}
             <label> Dining Date</label>
             <input
               className="form-control"
               name="diningDate"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.diningDate}
+              {...formik.getFieldProps("diningDate")}
             />
             <label>Number of Covers </label>
             <input
               className="form-control"
               name="numberOfCovers"
-              required
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.numberOfCovers}
+              {...formik.getFieldProps("numberOfCovers")}
             />
+
             <label> Email </label>
             <input
               className="form-control"
               name="email"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.email}
+              {...formik.getFieldProps("email")}
             />
-            {errors.email && <p className="error-text">{errors.email}</p>}
+            {formik.touched.email && formik.errors.email ? (
+              <div className="error">{formik.errors.email}</div>
+            ) : null}
             <label>Phone Number</label>
             <input
               className="form-control"
-              required
               name="phoneNumber"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.phoneNumber}
+              {...formik.getFieldProps("phoneNumber")}
             />
-            {errors.phoneNumber && (
-              <p className="error-text">{errors.phoneNumber}</p>
-            )}
-            <button
-              className="btn btn-lg btn-success btn-block"
-              type="submit"
-              onClick={
-                handleSubmit === 1 ? () => props.addNew(newBooking) : handleBlur
-              }
-            >
+            <button className="btn btn-lg btn-success btn-block" type="submit">
               Book Table
             </button>
           </form>
