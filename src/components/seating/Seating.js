@@ -5,7 +5,7 @@ import Footer from "../footer/Footer";
 import { markSeated } from "../../redux/actions";
 
 function Seating(props) {
-  console.log(props.bookings);
+  const myBookings = props.bookings || [];
   return (
     <div>
       <h3 className="seating-title">Booking List </h3>
@@ -26,9 +26,8 @@ function Seating(props) {
             <th scope="col">Status</th>
           </tr>
         </thead>
-        {props.bookings.map((booking) => (
-          <tbody>
-            {/* {key={booking.id}} */}
+        {myBookings.map((booking) => (
+          <tbody key={booking.id}>
             <tr>
               <td>{booking.id} </td>
 

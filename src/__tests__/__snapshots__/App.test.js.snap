@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component Matches the snapshot 1`] = `
+<div>
+  <header
+    className="header-link"
+  >
+    <a
+      className="link-element"
+      href="/booking"
+      onClick={[Function]}
+    >
+      Booking
+    </a>
+    <a
+      className="link-element"
+      href="/booking/booking-list"
+      onClick={[Function]}
+    >
+      Seating
+    </a>
+  </header>
+</div>
+`;
