@@ -1,4 +1,4 @@
-import { BOOKING_LOAD, BOOKING_ADD, BOOKING_MARK_SEATED } from "./actions";
+import { BOOKING_ADD, BOOKING_MARK_SEATED } from "./actions";
 import data from "../data/data";
 
 const INITAL_BOOKINGS = data;
@@ -16,8 +16,6 @@ function bookingReducer(state = INITAL_BOOKINGS, action) {
           };
         } else return booking;
       });
-
-    case BOOKING_LOAD:
     default:
       return state;
   }
