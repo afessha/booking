@@ -1,10 +1,11 @@
-import { BOOKING_ADD, BOOKING_MARK_SEATED } from "./actions";
-import data from "../data/data";
+import { BOOKING_ADD, BOOKING_MARK_SEATED, BOOKING_LOADED } from "./actions";
 
-const INITAL_BOOKINGS = data;
+const INITAL_BOOKINGS = [];
 
 function bookingReducer(state = INITAL_BOOKINGS, action) {
   switch (action.type) {
+    case BOOKING_LOADED:
+      return [...state, action.initalBookings];
     case BOOKING_ADD:
       return [...state, action.booking];
     case BOOKING_MARK_SEATED:
