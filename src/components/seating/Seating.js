@@ -8,6 +8,7 @@ function Seating({ bookings, loadBookings, markSeated }) {
   useEffect(() => {
     loadBookings();
   }, []);
+  console.log(bookings);
   return (
     <div>
       <h3 className="seating-title">Booking List </h3>
@@ -67,8 +68,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    markSeated: (bookingId, value) => dispatch(markSeated(bookingId, value)),
     loadBookings: () => dispatch(loadBookings()),
+    markSeated: (bookingId, value) => dispatch(markSeated(bookingId, value)),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Seating);

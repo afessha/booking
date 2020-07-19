@@ -1,14 +1,17 @@
 //action types
 export const BOOKING_ADD = "BOOKING_ADD";
-export const BOOKING_LOADED = "BOOKING_LOAD";
+export const BOOKING_LOADED = "BOOKING_LOADED";
 export const BOOKING_MARK_SEATED = "BOOKING_MARK_SEATED";
+
 export function loadBookings() {
   return function (dispatch) {
-    fetch(
+    return fetch(
       "https://9hgho8x1kg.execute-api.us-east-2.amazonaws.com/default/restaurant-booking"
     )
-      .then((res) => res.json)
-      .then((bookings) => dispatch(initaliseBookings(bookings)));
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch(initaliseBookings(data));
+      });
   };
 }
 //action creator
