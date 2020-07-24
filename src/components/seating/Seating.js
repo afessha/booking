@@ -1,14 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import "./Seating.css";
 import { connect } from "react-redux";
 import Footer from "../footer/Footer";
 import { markSeated, loadBookings } from "../../redux/actions";
 
-function Seating({ bookings, loadBookings, markSeated }) {
+function Seating({ bookings, markSeated, initaliseBookings }) {
   useEffect(() => {
-    loadBookings();
+    initaliseBookings();
   }, []);
   console.log(bookings);
+
   return (
     <div>
       <h3 className="seating-title">Booking List </h3>
@@ -59,16 +60,15 @@ function Seating({ bookings, loadBookings, markSeated }) {
     </div>
   );
 }
-
 const mapStateToProps = (state) => {
   return {
-    bookings: state,
+    bookings: state.bookings,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    loadBookings: () => dispatch(loadBookings()),
+    initaliseBookings: () => dispatch(loadBookings()),
     markSeated: (bookingId, value) => dispatch(markSeated(bookingId, value)),
   };
 };

@@ -15,7 +15,7 @@ export function loadBookings() {
   };
 }
 //action creator
-function initaliseBookings(initalBookings) {
+export function initaliseBookings(initalBookings) {
   return { type: BOOKING_LOADED, initalBookings };
 }
 
