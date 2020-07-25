@@ -5,10 +5,10 @@ import Footer from "../footer/Footer";
 import { markSeated, loadBookings } from "../../redux/actions";
 
 function Seating({ bookings, markSeated, initaliseBookings }) {
-  useEffect(() => {
-    initaliseBookings();
-  }, []);
-  console.log(bookings);
+  // useEffect(() => {
+  //   initaliseBookings();
+  // }, []);
+  // console.log(bookings);
 
   return (
     <div>
