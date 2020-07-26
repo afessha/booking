@@ -1,6 +1,5 @@
 {
   "name": "booking",
-  "homepage": "http://awetfessha.github.io/booking",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
