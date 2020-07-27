@@ -1,0 +1,9 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+h3 {
+  text-align: center;
+  padding: 15px;
+}
