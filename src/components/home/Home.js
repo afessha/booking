@@ -20,10 +20,13 @@ function Home() {
             src="https://gobackpacking.com/wp-content/uploads/2011/07/Ethiopian-food.jpg"
           />
           <Card.Body>
-            <Card.Title>Card Title</Card.Title>
+            <Card.Title>Food</Card.Title>
             <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
+              Eritrean cuisine is tsebhi (stew), served with injera (flatbread
+              made from teff, wheat, or sorghum and hilbet (paste made from
+              legumes; mainly lentil and faba beans). A typical traditional
+              Eritrean dish consists of injera accompanied by a spicy stew,
+              which frequently includes beef, goat, lamb or fish.
             </Card.Text>
           </Card.Body>
           <ListGroup className="list-group-flush">
@@ -40,13 +43,16 @@ function Home() {
         <Card style={{ width: "22rem" }}>
           <Card.Img
             variant="top"
-            src="https://www.yetlebla.com/wp-content/uploads/30.jpg"
+            src="https://cdn2.vox-cdn.com/thumbor/RUoaNnhjLyBi3iyt8h5Lv8EghmU=/1200x0/filters:no_upscale()/cdn2.vox-cdn.com/uploads/chorus_asset/file/7524145/untitled-9871.0.jpeg"
           />
           <Card.Body>
-            <Card.Title>Card Title</Card.Title>
+            <Card.Title>Drinks</Card.Title>
             <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
+              Myes is a honey wine that is brewed and consumed in Ethiopia and
+              Eritrea. It is flavoured with the powdered leaves and twigs of
+              gesho (Rhamnus prinoides), a hops-like bittering agent that is a
+              species of buckthorn.It is often served in a flask-like pitcher or
+              bottle, called a bereles.
             </Card.Text>
           </Card.Body>
           <ListGroup className="list-group-flush">
@@ -65,10 +71,13 @@ function Home() {
             src="https://africanpalacetoronto.files.wordpress.com/2013/11/coffee-dsc_3514.jpg"
           />
           <Card.Body>
-            <Card.Title>Card Title</Card.Title>
+            <Card.Title>Coffee</Card.Title>
             <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
+              A coffee ceremony is a ritualized form of making and drinking
+              coffee.There is a routine of serving coffee on a daily basis,
+              mainly for the purpose of getting together with relatives,
+              neighbors, or other visitors. If coffee is politely declined, then
+              tea (Chai) will most likely be served.
             </Card.Text>
           </Card.Body>
           <ListGroup className="list-group-flush">
