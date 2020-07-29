@@ -1,12 +1,6 @@
 import React from "react";
 import Footer from "../footer/Footer";
-import {
-  Jumbotron,
-  Button,
-  Card,
-  ListGroup,
-  ListGroupItem,
-} from "react-bootstrap";
+import { Card, ListGroup, ListGroupItem } from "react-bootstrap";
 import { connect } from "react-redux";
 import "./Home.css";
 function Home() {
@@ -30,13 +24,13 @@ function Home() {
             </Card.Text>
           </Card.Body>
           <ListGroup className="list-group-flush">
-            <ListGroupItem>Cras justo odio</ListGroupItem>
-            <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-            <ListGroupItem>Vestibulum at eros</ListGroupItem>
+            <ListGroupItem>Tebsi</ListGroupItem>
+            <ListGroupItem>Tsebhi derho</ListGroupItem>
+            <ListGroupItem>Shiro</ListGroupItem>
           </ListGroup>
           <Card.Body>
             <Card.Link href="#">Card Link</Card.Link>
-            <Card.Link href="#">Another Link</Card.Link>
+            <Card.Link href="#">Learn more</Card.Link>
           </Card.Body>
         </Card>
 
@@ -56,13 +50,13 @@ function Home() {
             </Card.Text>
           </Card.Body>
           <ListGroup className="list-group-flush">
-            <ListGroupItem>Cras justo odio</ListGroupItem>
-            <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-            <ListGroupItem>Vestibulum at eros</ListGroupItem>
+            <ListGroupItem>Swa</ListGroupItem>
+            <ListGroupItem>Miyes</ListGroupItem>
+            <ListGroupItem>Areki</ListGroupItem>
           </ListGroup>
           <Card.Body>
             <Card.Link href="#">Card Link</Card.Link>
-            <Card.Link href="#">Another Link</Card.Link>
+            <Card.Link href="#">Learn more</Card.Link>
           </Card.Body>
         </Card>
         <Card style={{ width: "22rem" }}>
@@ -81,13 +75,13 @@ function Home() {
             </Card.Text>
           </Card.Body>
           <ListGroup className="list-group-flush">
-            <ListGroupItem>Cras justo odio</ListGroupItem>
-            <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-            <ListGroupItem>Vestibulum at eros</ListGroupItem>
+            <ListGroupItem>Shahi</ListGroupItem>
+            <ListGroupItem>Tsimuak</ListGroupItem>
+            <ListGroupItem>Bun </ListGroupItem>
           </ListGroup>
           <Card.Body>
             <Card.Link href="#">Card Link</Card.Link>
-            <Card.Link href="#">Another Link</Card.Link>
+            <Card.Link href="#">Learn more</Card.Link>
           </Card.Body>
         </Card>
       </div>
