@@ -29,7 +29,7 @@ function Home() {
             <ListGroupItem>Shiro</ListGroupItem>
           </ListGroup>
           <Card.Body>
-            <Card.Link href="#">Card Link</Card.Link>
+            <Card.Link href="#">Go here</Card.Link>
             <Card.Link href="#">Learn more</Card.Link>
           </Card.Body>
         </Card>
@@ -55,7 +55,7 @@ function Home() {
             <ListGroupItem>Areki</ListGroupItem>
           </ListGroup>
           <Card.Body>
-            <Card.Link href="#">Card Link</Card.Link>
+            <Card.Link href="#">Go here</Card.Link>
             <Card.Link href="#">Learn more</Card.Link>
           </Card.Body>
         </Card>
@@ -80,7 +80,7 @@ function Home() {
             <ListGroupItem>Bun </ListGroupItem>
           </ListGroup>
           <Card.Body>
-            <Card.Link href="#">Card Link</Card.Link>
+            <Card.Link href="#">Go here</Card.Link>
             <Card.Link href="#">Learn more</Card.Link>
           </Card.Body>
         </Card>
