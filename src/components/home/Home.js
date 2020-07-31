@@ -26,11 +26,14 @@ function Home() {
           <ListGroup className="list-group-flush">
             <ListGroupItem>Tebsi</ListGroupItem>
             <ListGroupItem>Tsebhi derho</ListGroupItem>
-            <ListGroupItem>Shiro</ListGroupItem>
           </ListGroup>
           <Card.Body>
-            <Card.Link href="#">Go here</Card.Link>
-            <Card.Link href="#">Learn more</Card.Link>
+            <Card.Link href="https://en.wikipedia.org/wiki/Eritrean_cuisine">
+              Tebsi
+            </Card.Link>
+            <Card.Link href="https://en.wikipedia.org/wiki/Wat_(food)">
+              Tsebhi derho
+            </Card.Link>
           </Card.Body>
         </Card>
 
@@ -52,11 +55,14 @@ function Home() {
           <ListGroup className="list-group-flush">
             <ListGroupItem>Swa</ListGroupItem>
             <ListGroupItem>Miyes</ListGroupItem>
-            <ListGroupItem>Areki</ListGroupItem>
           </ListGroup>
           <Card.Body>
-            <Card.Link href="#">Go here</Card.Link>
-            <Card.Link href="#">Learn more</Card.Link>
+            <Card.Link href="https://en.wikipedia.org/wiki/Eritrean_cuisine#:~:text=bar%20in%20Eritrea-,Beverages,Mies)%20is%20also%20commonly%20served.">
+              Swa
+            </Card.Link>
+            <Card.Link href="https://en.wikipedia.org/wiki/Tej#:~:text=Tej%20(from%20Amharic%20%E1%8C%A0%E1%8C%80%2C%20pronounced,Tigrinya%2C%20and%20daadhi%20in%20Oromo.">
+              Miyes
+            </Card.Link>
           </Card.Body>
         </Card>
         <Card style={{ width: "22rem" }}>
@@ -77,11 +83,14 @@ function Home() {
           <ListGroup className="list-group-flush">
             <ListGroupItem>Shahi</ListGroupItem>
             <ListGroupItem>Tsimuak</ListGroupItem>
-            <ListGroupItem>Bun </ListGroupItem>
           </ListGroup>
           <Card.Body>
-            <Card.Link href="#">Go here</Card.Link>
-            <Card.Link href="#">Learn more</Card.Link>
+            <Card.Link href="http://eritreanfoodanddrinks.blogspot.com/p/suwa-and-mes.html">
+              Shahi
+            </Card.Link>
+            <Card.Link href="https://en.wikipedia.org/wiki/Culture_of_Eritrea">
+              Tsimuak
+            </Card.Link>
           </Card.Body>
         </Card>
       </div>
