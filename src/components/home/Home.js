@@ -53,12 +53,12 @@ function Home() {
             </Card.Text>
           </Card.Body>
           <ListGroup className="list-group-flush">
-            <ListGroupItem>Swa</ListGroupItem>
+            <ListGroupItem>Suwa</ListGroupItem>
             <ListGroupItem>Miyes</ListGroupItem>
           </ListGroup>
           <Card.Body>
             <Card.Link href="https://en.wikipedia.org/wiki/Eritrean_cuisine#:~:text=bar%20in%20Eritrea-,Beverages,Mies)%20is%20also%20commonly%20served.">
-              Swa
+              Suwa
             </Card.Link>
             <Card.Link href="https://en.wikipedia.org/wiki/Tej#:~:text=Tej%20(from%20Amharic%20%E1%8C%A0%E1%8C%80%2C%20pronounced,Tigrinya%2C%20and%20daadhi%20in%20Oromo.">
               Miyes
