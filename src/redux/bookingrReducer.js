@@ -10,7 +10,7 @@ function bookingReducer(state = INITAL_BOOKINGS, action) {
       return [...state, action.booking];
     case BOOKING_MARK_SEATED:
       return state.map((booking) => {
-        if (booking.id === action.bookingId) {
+        if (booking.booking_id === action.bookingId) {
           return {
             ...booking,
             status: action.value,

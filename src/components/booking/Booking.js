@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import axios from "axios";
 import "./Booking.css";
 import Footer from "../footer/Footer";
 import { useFormik } from "formik";
@@ -11,10 +12,11 @@ function Booking(props) {
     initialValues: {
       firstname: "",
       lastname: "",
-      diningDate: "",
-      numberOfCovers: "",
-      email: "",
-      phoneNumber: "",
+      dining_date: "",
+      number_of_covers: "",
+      booking_email: "",
+      phone_number: "",
+      status: "Not arrived",
     },
     validationSchema: Yup.object({
       firstname: Yup.string()
@@ -23,15 +25,24 @@ function Booking(props) {
       lastname: Yup.string()
         .max(20, "Must be 20 characters or less")
         .required("Required"),
-      email: Yup.string().email("Invalid email address").required("Required"),
+      booking_email: Yup.string()
+        .email("Invalid email address")
+        .required("Required"),
     }),
-    onSubmit: (booking) => {
-      props.addNew({
-        ...booking,
-        id: Date.now(),
-        status: "Not arrived",
-      });
-      formik.resetForm();
+    onSubmit: async (booking) => {
+      try {
+        let res = await axios.post(
+          "https://a6qroxzfnb.execute-api.eu-west-2.amazonaws.com/dev/bookings",
+          JSON.stringify(booking)
+        );
+        console.log(res.status);
+        if (res.status === 200) {
+          props.addNew({ booking });
+          formik.resetForm();
+        }
+      } catch (err) {
+        console.log("Error happened" + err);
+      }
     },
   });
 
@@ -63,30 +74,30 @@ function Booking(props) {
             <label> Dining Date</label>
             <input
               className="form-control"
-              name="diningDate"
-              {...formik.getFieldProps("diningDate")}
+              name="dining_date"
+              {...formik.getFieldProps("dining_date")}
             />
             <label>Number of Covers </label>
             <input
               className="form-control"
-              name="numberOfCovers"
-              {...formik.getFieldProps("numberOfCovers")}
+              name="number_of_covers"
+              {...formik.getFieldProps("number_of_covers")}
             />
 
             <label> Email </label>
             <input
               className="form-control"
-              name="email"
-              {...formik.getFieldProps("email")}
+              name="booking_email"
+              {...formik.getFieldProps("booking_email")}
             />
-            {formik.touched.email && formik.errors.email ? (
-              <div className="error">{formik.errors.email}</div>
+            {formik.touched.booking_email && formik.errors.booking_email ? (
+              <div className="error">{formik.errors.booking_email}</div>
             ) : null}
             <label>Phone Number</label>
             <input
               className="form-control"
-              name="phoneNumber"
-              {...formik.getFieldProps("phoneNumber")}
+              name="phone_number"
+              {...formik.getFieldProps("phone_number")}
             />
             <button className="btn btn-lg btn-success btn-block" type="submit">
               Book Table
