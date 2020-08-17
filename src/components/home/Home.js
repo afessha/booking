@@ -1,12 +1,18 @@
-import React from "react";
-import Footer from "../footer/Footer";
-import { Card, ListGroup, ListGroupItem } from "react-bootstrap";
+import React, { useEffect, useCallback } from "react";
 import { connect } from "react-redux";
+import Footer from "../footer/Footer";
+import { loadBookings } from "../../redux/actions";
+import { Card, ListGroup, ListGroupItem } from "react-bootstrap";
+
 import "./Home.css";
-function Home() {
+function Home({ bookings, initaliseBookings }) {
+  useEffect(() => {
+    initaliseBookings();
+  }, []);
   return (
     <div>
       <h3> WELCOME TO OUR RESTAURANT</h3>
+      <h5> We have {bookings.length} bookings today.</h5>
       <div className="wrapper">
         <Card style={{ width: "22rem" }}>
           <Card.Img
@@ -100,4 +106,15 @@ function Home() {
   );
 }
 
-export default connect()(Home);
+const mapStateToProps = (state) => {
+  return {
+    bookings: state.bookings,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    initaliseBookings: () => dispatch(loadBookings()),
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

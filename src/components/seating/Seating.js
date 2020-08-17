@@ -1,15 +1,10 @@
-import React, { useEffect, useCallback } from "react";
+import React from "react";
 import "./Seating.css";
 import { connect } from "react-redux";
 import Footer from "../footer/Footer";
 import { markSeated, loadBookings } from "../../redux/actions";
 
 function Seating({ bookings, markSeated, initaliseBookings }) {
-  // useEffect(() => {
-  //   initaliseBookings();
-  // }, []);
-  // console.log(bookings);
-
   return (
     <div>
       <h3 className="seating-title">Booking List </h3>
@@ -31,21 +26,21 @@ function Seating({ bookings, markSeated, initaliseBookings }) {
           </tr>
         </thead>
         {bookings.map((booking) => (
-          <tbody key={booking.id}>
+          <tbody key={booking.booking_id}>
             <tr>
-              <td>{booking.id} </td>
+              <td>{booking.booking_id} </td>
 
               <td>{booking.firstname} </td>
 
               <td>{booking.lastname} </td>
 
-              <td>{booking.diningDate} </td>
+              <td>{booking.dining_date} </td>
 
-              <td>{booking.numberOfCovers} </td>
+              <td>{booking.number_of_covers} </td>
 
-              <td>{booking.phoneNumber}</td>
+              <td>{booking.phone_number}</td>
 
-              <td>{booking.email}</td>
+              <td>{booking.booking_email}</td>
               <td>{booking.status}</td>
               <td>
                 <button onClick={() => markSeated(booking.id, "Seated")}>
@@ -68,7 +63,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    initaliseBookings: () => dispatch(loadBookings()),
     markSeated: (bookingId, value) => dispatch(markSeated(bookingId, value)),
   };
 };
