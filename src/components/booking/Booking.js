@@ -33,9 +33,9 @@ function Booking(props) {
       try {
         let res = await axios.post(
           "https://a6qroxzfnb.execute-api.eu-west-2.amazonaws.com/dev/bookings",
-          JSON.stringify(booking)
+          booking
         );
-        console.log(res.status);
+        console.log(res);
         if (res.status === 200) {
           props.addNew({ booking });
           formik.resetForm();
