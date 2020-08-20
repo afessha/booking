@@ -8,7 +8,7 @@ import "./Home.css";
 function Home({ bookings, initaliseBookings }) {
   useEffect(() => {
     initaliseBookings();
-  }, []);
+  }, [initaliseBookings]);
   return (
     <div>
       <h3> WELCOME TO OUR RESTAURANT</h3>

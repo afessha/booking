@@ -2,9 +2,10 @@ import React from "react";
 import "./Seating.css";
 import { connect } from "react-redux";
 import Footer from "../footer/Footer";
-import { markSeated, loadBookings } from "../../redux/actions";
+import { markSeated } from "../../redux/actions";
 
-function Seating({ bookings, markSeated, initaliseBookings }) {
+function Seating({ props, bookings, markSeated }) {
+  console.log(bookings);
   return (
     <div>
       <h3 className="seating-title">Booking List </h3>
@@ -26,8 +27,8 @@ function Seating({ bookings, markSeated, initaliseBookings }) {
           </tr>
         </thead>
         {bookings.map((booking) => (
-          <tbody key={booking.booking_id}>
-            <tr>
+          <tbody>
+            <tr key={booking.booking_id}>
               <td>{booking.booking_id} </td>
 
               <td>{booking.firstname} </td>
@@ -43,7 +44,9 @@ function Seating({ bookings, markSeated, initaliseBookings }) {
               <td>{booking.booking_email}</td>
               <td>{booking.status}</td>
               <td>
-                <button onClick={() => markSeated(booking.id, "Seated")}>
+                <button
+                  onClick={() => markSeated(booking.booking_id, "Seated")}
+                >
                   Mark Seated
                 </button>
               </td>
