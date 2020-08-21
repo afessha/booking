@@ -26,9 +26,9 @@ function Seating({ props, bookings, markSeated }) {
             <th scope="col">Status</th>
           </tr>
         </thead>
-        {bookings.map((booking) => (
+        {bookings.map((booking, index) => (
           <tbody>
-            <tr key={booking.booking_id}>
+            <tr key={index}>
               <td>{booking.booking_id} </td>
 
               <td>{booking.firstname} </td>
