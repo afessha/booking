@@ -30,19 +30,12 @@ function Booking(props) {
         .required("Required"),
     }),
     onSubmit: async (booking) => {
-      try {
-        let res = await axios.post(
-          "https://a6qroxzfnb.execute-api.eu-west-2.amazonaws.com/dev/bookings",
-          booking
-        );
-        console.log(res);
-        if (res.status === 200) {
-          props.addNew({ booking });
-          formik.resetForm();
-        }
-      } catch (err) {
-        console.log("Error happened" + err);
-      }
+      props.addNew(booking);
+      formik.resetForm();
+      await axios.post(
+        "https://a6qroxzfnb.execute-api.eu-west-2.amazonaws.com/dev/bookings",
+        booking
+      );
     },
   });
 
