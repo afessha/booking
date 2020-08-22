@@ -5,7 +5,7 @@ const INITAL_BOOKINGS = [];
 function bookingReducer(state = INITAL_BOOKINGS, action) {
   switch (action.type) {
     case BOOKING_LOADED:
-      return [...state, action.initalBookings];
+      return state.concat(action.initalBookings);
     case BOOKING_ADD:
       return [...state, action.booking];
     case BOOKING_MARK_SEATED:
