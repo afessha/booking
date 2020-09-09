@@ -1,11 +1,10 @@
 import React from "react";
-import { create } from "react-test-renderer";
-import { BrowserRouter, Route } from "react-router-dom";
+import { render } from "../testUtils/helper";
 import App from "../App";
 
 describe("App component", () => {
   test("Matches the snapshot", () => {
-    const app = create(<App />);
-    expect(app).toMatchSnapshot();
+    const app = render(<App />);
+    expect(app.toJSON()).toMatchSnapshot();
   });
 });
