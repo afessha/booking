@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import Footer from "../footer/Footer";
 import { loadBookings } from "../../redux/actions";
