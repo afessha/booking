@@ -26,7 +26,7 @@ function Home({ bookings, initaliseBookings }) {
               made from teff, wheat, or sorghum and hilbet (paste made from
               legumes; mainly lentil and faba beans). A typical traditional
               Eritrean dish consists of injera accompanied by a spicy stew,
-              which frequently includes beef, goat, lamb or fish.
+              which frequently includes beef, goat and lamb.
             </Card.Text>
           </Card.Body>
           <ListGroup className="list-group-flush">
