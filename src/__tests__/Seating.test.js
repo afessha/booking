@@ -5,6 +5,6 @@ import { render } from "../testUtils/helper";
 describe("Seating component", () => {
   test("Matches the snapshot", () => {
     const seating = render(<Seating />);
-    expect(seating.toJSON()).toMatchSnapshot();
+    expect(seating).toMatchSnapshot();
   });
 });
