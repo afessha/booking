@@ -1,7 +1,6 @@
 import React from "react";
 import { render } from "../testUtils/helper";
 import Seating from "../components/seating/Seating";
-import data from "../data/data.json";
 
 //Unit tests
 describe("Seating component", () => {
