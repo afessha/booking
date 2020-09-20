@@ -5,14 +5,13 @@ import { loadBookings } from "../../redux/actions";
 import { Card, ListGroup, ListGroupItem } from "react-bootstrap";
 
 import "./Home.css";
-function Home({ bookings, initaliseBookings }) {
+function Home({ initaliseBookings }) {
   useEffect(() => {
     initaliseBookings();
   }, [initaliseBookings]);
   return (
     <div>
       <h3> WELCOME TO OUR RESTAURANT</h3>
-      <h5> We have {bookings.length} bookings today.</h5>
       <div className="wrapper">
         <Card style={{ width: "22rem" }}>
           <Card.Img
@@ -106,15 +105,9 @@ function Home({ bookings, initaliseBookings }) {
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    bookings: state.bookings,
-  };
-};
-
 const mapDispatchToProps = (dispatch) => {
   return {
     initaliseBookings: () => dispatch(loadBookings()),
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(null, mapDispatchToProps)(Home);
