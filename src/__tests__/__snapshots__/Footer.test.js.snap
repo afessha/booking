@@ -4,6 +4,6 @@ exports[`Footer component Matches the snapshot 1`] = `
 <div
   className="footer"
 >
-   Awet Fessha @2020 
+   Awet Fessha ©2020 
 </div>
 `;
