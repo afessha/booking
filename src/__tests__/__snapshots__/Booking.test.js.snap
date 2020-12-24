@@ -40,6 +40,7 @@ Object {
             <input
               class="form-control"
               name="dining_date"
+              type="date"
               value=""
             />
             <label>
@@ -48,6 +49,7 @@ Object {
             <input
               class="form-control"
               name="number_of_covers"
+              type="number"
               value=""
             />
             <label>
@@ -118,6 +120,7 @@ Object {
           <input
             class="form-control"
             name="dining_date"
+            type="date"
             value=""
           />
           <label>
@@ -126,6 +129,7 @@ Object {
           <input
             class="form-control"
             name="number_of_covers"
+            type="number"
             value=""
           />
           <label>
