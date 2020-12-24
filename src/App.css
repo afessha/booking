@@ -1,6 +1,6 @@
 .header-link {
   background-color: #1e1e28;
-  
+
   margin: 5px;
   flex-direction: row;
   padding: 20px;
@@ -9,5 +9,5 @@
 .link-element {
   color: #e6a614;
   padding: 40px;
-  font-size: large;
+  font-size: 25px;
 }
