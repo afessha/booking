@@ -68,12 +68,14 @@ function Booking(props) {
             <input
               className="form-control"
               name="dining_date"
+              type="date"
               {...formik.getFieldProps("dining_date")}
             />
             <label>Number of Covers </label>
             <input
               className="form-control"
               name="number_of_covers"
+              type= "number"
               {...formik.getFieldProps("number_of_covers")}
             />
 
