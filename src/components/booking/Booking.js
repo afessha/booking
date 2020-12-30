@@ -6,10 +6,12 @@ import Footer from "../footer/Footer";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { bookingAdd } from "../../redux/actions";
+const uuid = require("uuid");
 
 function Booking(props) {
   const formik = useFormik({
     initialValues: {
+      booking_id: uuid.v1().toString().substring(0,8),
       firstname: "",
       lastname: "",
       dining_date: "",
